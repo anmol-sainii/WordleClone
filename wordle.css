@@ -1,8 +1,17 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+/* Title & Layout */
 hr {
     width: 500px;
 }
@@ -22,22 +31,29 @@ hr {
     flex-wrap: wrap;
 }
 
+/* Tiles */
 .tile {
-    /* Box */
     border: 2px solid lightgray;
     width: 60px;
     height: 60px;
     margin: 2.5px;
 
-    /* Text */
     color: black;
     font-size: 36px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
+body.dark-mode .tile {
+    border-color: #555;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+/* Tile States */
 .correct {
     background-color: #6AAA64;
     color: white;
@@ -53,42 +69,131 @@ hr {
 .absent {
     background-color: #787C7E;
     color: white;
-    border-color:white;
+    border-color: white;
 }
 
 
+body.dark-mode .correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: #555;
+}
+
+body.dark-mode .present {
+    background-color: #C9B458;
+    color: white;
+    border-color: #555;
+}
+
+body.dark-mode .absent {
+    background-color: #787C7E;
+    color: white;
+    border-color: #555;
+}
+
+/* Keyboard */
 .keyboard-row {
     width: 400px;
-
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
 
-.key-tile {
-    width: 36px;
-    height: 40px;
-    margin: 1px;
-    border: 1px solid lightgray;
+body.dark-mode .keyboard-row {
+    background-color: #1a1a1a;
+}
 
-    /* Text */
+/* Key Tile */
+.key-tile, .enter-key-tile {
     font-size: 20px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid lightgray;
+    margin: 1px;
+    background-color: #e0e0e0;
+    color: #000000;
+}
+
+.key-tile {
+    width: 36px;
+    height: 40px;
 }
 
 .enter-key-tile {
     width: 76px;
     height: 40px;
-    margin: 1px;
-    border: 1px solid lightgray;
+}
 
-    /* Text */
-    font-size: 20px;
-    font-weight: bold;
+body.dark-mode .key-tile,
+body.dark-mode .enter-key-tile {
+    background-color: #333;
+    color: #f0f0f0;
+    border-color: #666;
+}
+
+
+.key-tile.correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: white;
+}
+
+
+.key-tile.present  {
+    background-color: #C9B458;
+    color: white;
+    border-color: white;
+}
+
+.key-tile.absent   {
+    background-color: #787C7E;
+    color: white;
+    border-color: white;
+}
+
+body.dark-mode .key-tile.correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: #555;
+}
+
+body.dark-mode .key-tile.present {
+    background-color: #C9B458;
+    color: white;
+    border-color: #555;
+}
+body.dark-mode .key-tile.absent {
+    background-color: #787C7E;
+    color: white;
+    border-color: #555;
+}
+/* Controls Section */
+.controls {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 600px;
+    flex-wrap: wrap;
+}
+
+
+/* Toggle Button */
+#theme-toggle {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #666;
 }
